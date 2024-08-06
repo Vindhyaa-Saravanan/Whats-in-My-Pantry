@@ -90,12 +90,7 @@ export default function Home() {
     const docRef = doc(collection(firestore, 'inventory'), item)
     const docSnap = await getDoc(docRef)
     if (docSnap.exists()) {
-      const { quantity } = docSnap.data()
-      if (quantity === 1) {
-        await deleteDoc(docRef)
-      } else {
-        await setDoc(docRef, { quantity: quantity - 1 })
-      }
+      await deleteDoc(docRef)
     }
     await updateInventory()
   }
@@ -236,8 +231,8 @@ export default function Home() {
             display="flex"
             justifyContent="center"
             alignItems="center"
-            borderTopLeftRadius={2}
-            borderTopRightRadius={2}
+            bordertopleftradius={2}
+            bordertoprightradius={2}
           >
             <Typography variant="h4" color="white" textAlign="center">
               Inventory Items
